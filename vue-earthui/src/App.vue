@@ -3,9 +3,7 @@
     <!-- <img src="./assets/logo.png">
     <router-view/>-->
     <div class="top">上部</div>
-    <div class="middle">
-      <div ref="earthContainer" id="earthContainer" style="width:100%;height:100%;"></div>
-    </div>
+    <div ref="earthContainer" id="earthContainer"></div>
     <div class="left">左部</div>
   </div>
 </template>
@@ -14,7 +12,7 @@
 export default {
   name: "App",
   mounted() {
-    XbsjEarthUI.create("earthContainer").then(earthUI => {
+    XbsjEarthUI.create("earthContainer").then((earthUI) => {
       earthUI.earth.sceneTree.root = {
         expand: true,
         title: "影像",
@@ -30,18 +28,18 @@ export default {
                   xbsjImageryProvider: {
                     XbsjImageryProvider: {
                       url:
-                        "//www.google.cn/maps/vt?lyrs=s,h&gl=CN&x={x}&y={y}&z={z}"
-                    }
-                  }
+                        "//www.google.cn/maps/vt?lyrs=s,h&gl=CN&x={x}&y={y}&z={z}",
+                    },
+                  },
                 },
-                enabled: true
-              }
-            ]
-          }
-        ]
+                enabled: true,
+              },
+            ],
+          },
+        ],
       };
     });
-  }
+  },
 };
 </script>
 
@@ -65,12 +63,12 @@ body {
   height: 10%;
   background: rebeccapurple;
 }
-.middle {
+.xbsj-viewer {
   position: absolute;
   top: 10%;
   left: 10%;
-  width: 90%;
-  height: 90%;
+  width: 90% !important;
+  height: 90% !important;
 }
 .left {
   width: 10%;
